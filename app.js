@@ -6,12 +6,12 @@ const vid = document.querySelector("video");
 let count = 2;
 
 const gifs = [
-  "../resources/cat-heart.gif",
-  "../resources/rusure.gif",
-  "../resources/3shocked-1.gif",
-  "../resources/4.crying.gif",
-  "../resources/5.crying.gif",
-  "../resources/idc.gif"
+  "cat-heart.gif",
+  "rusure.gif",
+  "3shocked-1.gif",
+  "4.crying.gif",
+  "5.crying.gif",
+  "idc.gif"
 ];
 
 // to load the gifs faster
@@ -23,7 +23,7 @@ gifs.forEach(gifSrc => {
 // changes for when NO button is clicked
 no.addEventListener("click", () => {
   if (count == 2) {
-    gif.src = "D:/miko-start/miko-start-N/miko-start-web/resources/rusure.gif";// gif credit: https://knowyourmeme.com/photos/2738959-mr-fresh-side-eye-cat
+    gif.src = "rusure.gif";// gif credit: https://knowyourmeme.com/photos/2738959-mr-fresh-side-eye-cat
     text.innerHTML = "You meant to press YES right?🤨";
     yes.style.height = "65%";
     yes.style.width = "60%";
