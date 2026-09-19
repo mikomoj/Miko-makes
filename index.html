@@ -1,275 +1,38 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Do You Love Me?</title>
-    <style>
-        body {
-            background-color: #1a1c23;
-            font-family: 'Arial', sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-            overflow: hidden;
-        }
-        .container {
-            text-align: center;
-            background: #282a36;
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            max-width: 400px;
-            width: 90%;
-        }
-        h1 {
-            color: #ff79c6;
-            font-size: 24px;
-            margin-bottom: 20px;
-            min-height: 60px;
-        }
-        
-        /* बिल्ली का पूरा स्ट्रक्चर (CSS Drawing) */
-        .cat-container {
-            position: relative;
-            width: 200px;
-            height: 180px;
-            margin: 0 auto 30px;
-        }
-        .cat {
-            position: absolute;
-            width: 180px;
-            height: 140px;
-            background: white;
-            border-radius: 100px 100px 90px 90px;
-            left: 10px;
-            bottom: 10px;
-            box-shadow: inset -10px -10px 0 #f0f0f0;
-        }
-        /* कान */
-        .ear {
-            position: absolute;
-            width: 40px;
-            height: 40px;
-            background: white;
-            top: -10px;
-            border-radius: 10px;
-        }
-        .ear.left { left: 20px; transform: rotate(-15deg); }
-        .ear.right { right: 20px; transform: rotate(15deg); }
-        .ear-inner {
-            position: absolute;
-            width: 24px;
-            height: 24px;
-            background: #ffb86c;
-            border-radius: 5px;
-            top: 8px;
-            left: 8px;
-        }
-        /* आँखें */
-        .eyes {
-            position: absolute;
-            top: 55px;
-            width: 100%;
-            display: flex;
-            justify-content: space-around;
-            padding: 0 35px;
-            box-sizing: border-box;
-        }
-        .eye {
-            width: 22px;
-            height: 22px;
-            background: #282a36;
-            border-radius: 50%;
-            position: relative;
-        }
-        .pupil {
-            width: 8px;
-            height: 8px;
-            background: white;
-            border-radius: 50%;
-            position: absolute;
-            left: 7px;
-            top: 7px;
-        }
-        /* गाल और नाक */
-        .blush {
-            position: absolute;
-            width: 20px;
-            height: 12px;
-            background: #ff79c6;
-            opacity: 0.3;
-            border-radius: 50%;
-            top: 75px;
-        }
-        .blush.left { left: 20px; }
-        .blush.right { right: 20px; }
-        .nose {
-            position: absolute;
-            width: 10px;
-            height: 6px;
-            background: #ff5555;
-            border-radius: 50%;
-            top: 74px;
-            left: 85px;
-        }
-        /* दिल जो बिल्ली पकड़ेगी */
-        .cat-heart {
-            position: absolute;
-            width: 40px;
-            height: 40px;
-            background: #ff5555;
-            bottom: 0;
-            left: 80px;
-            transform: rotate(-45deg);
-            border-radius: 10px 10px 0 0;
-        }
-        .cat-heart:before, .cat-heart:after {
-            content: "";
-            position: absolute;
-            width: 40px;
-            height: 40px;
-            background: #ff5555;
-            border-radius: 50%;
-        }
-        .cat-heart:before { top: -20px; left: 0; }
-        .cat-heart:after { left: 20px; top: 0; }
-
-        /* एनिमेषन्स */
-        @keyframes shake {
-            0%, 100% { transform: translateX(0); }
-            20%, 60% { transform: translateX(-15px) rotate(-5deg); }
-            40%, 80% { transform: translateX(15px) rotate(5deg); }
-        }
-        .shake-animation {
-            animation: shake 0.5s ease-in-out;
-        }
-        
-        /* बटन्स */
-        .buttons { display: flex; justify-content: center; gap: 20px; }
-        button {
-            padding: 12px 30px;
-            font-size: 18px;
-            border: none;
-            border-radius: 25px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: all 0.2s;
-        }
-        #yesBtn { background-color: #50fa7b; color: #282a36; }
-        #noBtn { background-color: #ff5555; color: white; }
-    </style>
+    <link rel="icon" href="resources/fav.png">
+    <!-- credit: https://www.iconarchive.com/show/love-is-in-the-web-icons-by-succodesign/heart-icon.html#google_vignette for favicon -->
+    <title>Valentines invitation</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
-<div class="container">
-    <h1 id="question">Do you love me? 💖</h1>
-    
-    <div class="cat-container" id="catContainer">
-        <div class="ear left"><div class="ear-inner"></div></div>
-        <div class="ear-right ear"><div class="ear-inner"></div></div>
-        <div class="cat" id="catBody">
-            <div class="eyes">
-                <div class="eye"><div class="pupil" id="pupilL"></div></div>
-                <div class="eye"><div class="pupil" id="pupilR"></div></div>
-            </div>
-            <div class="blush left" id="blushL"></div>
-            <div class="blush right" id="blushR"></div>
-            <div class="nose"></div>
+    <section>
+        <div class="video-background">
+            <video autoplay loop muted playsinline>
+                <source src="resources/heart.webm" type="video/webm"><!-- web for transparent background video -->
+                <!-- video credit: https://www.vecteezy.com/video/23346640-red-heart-shape-balloon-flying-up-animation-on-green-screen-background-love-balloon-flying-up-animated-chroma-key-video -->
+                Your browser does not support the video tag.
+            </video>
         </div>
-        <div class="cat-heart" id="mainHeart"></div>
-    </div>
-
-    <div class="buttons">
-        <button id="yesBtn" onclick="sayYes()">YES</button>
-        <button id="noBtn" onclick="changeQuestion()">NO</button>
-    </div>
-</div>
-
-<script>
-    let noCount = 0;
-    const phrases = [
-        "This is not the right answer! Be serious! 😠",
-        "Last time asking... 🥺",
-        "Please?? 😢",
-        "I know you'd say YES! 😉"
-    ];
-
-    // माउस मूवमेंट के साथ आँखों का घूमना (Eye Tracking)
-    document.addEventListener('mousemove', (e) => {
-        const pupils = document.querySelectorAll('.pupil');
-        pupils.forEach(pupil => {
-            const rect = pupil.getBoundingClientRect();
-            const x = rect.left + (rect.width / 2);
-            const y = rect.top + (rect.height / 2);
-            const rad = Math.atan2(e.pageX - x, e.pageY - y);
-            const rot = (rad * (180 / Math.PI) * -1) + 180;
-            
-            // आँखों को एक सीमित दायरे में घुमाना
-            const distance = 4; 
-            const moveX = Math.sin(rad) * distance;
-            const moveY = Math.cos(rad) * distance;
-            pupil.style.transform = `translate(${moveX}px, ${moveY}px)`;
-        });
-    });
-
-    // NO दबाने पर सिर हिलने और टेक्स्ट बदलने का फंक्शन
-    function changeQuestion() {
-        const cat = document.getElementById('catContainer');
-        
-        // सिर हिलाने का एनीमेशन चालू करें
-        cat.classList.add('shake-animation');
-        setTimeout(() => cat.classList.remove('shake-animation'), 500);
-
-        if (noCount < phrases.length) {
-            document.getElementById('question').innerHTML = phrases[noCount];
-            if (noCount === phrases.length - 1) {
-                document.getElementById('noBtn').style.display = 'none';
-            }
-            noCount++;
-        }
-    }
-
-    // YES दबाने पर बिल्ली को खुश करना
-    function sayYes() {
-        document.getElementById('question').innerHTML = "I Knew It! 💖 I Love You Too!";
-        document.getElementById('blushL').style.opacity = "1";
-        document.getElementById('blushR').style.opacity = "1";
-        document.getElementById('noBtn').style.display = 'none';
-        
-        // दिलों की बारिश का इफ़ेक्ट
-        for(let i=0; i<15; i++) {
-            createHeart();
-        }
-    }
-
-    function createHeart() {
-        const heart = document.createElement('div');
-        heart.innerHTML = '❤️';
-        heart.style.position = 'fixed';
-        heart.style.left = Math.random() * 100 + 'vw';
-        heart.style.top = '100vh';
-        heart.style.fontSize = Math.random() * 20 + 20 + 'px';
-        heart.style.animation = 'floatUp 2s linear forwards';
-        heart.style.transition = 'all 2s';
-        document.body.appendChild(heart);
-        
-        setTimeout(() => {
-            heart.style.transform = `translateY(-120vh) scale(0)`;
-            setTimeout(() => heart.remove(), 2000);
-        }, 50);
-    }
-</script>
-
-<style>
-    @keyframes floatUp {
-        0% { transform: translateY(0) rotate(0deg); opacity: 1; }
-        100% { transform: translateY(-120vh) rotate(360deg); opacity: 0; }
-    }
-</style>
-
+        <div class="container">
+            <div class="image-box">
+                <div class="actual-image">
+                    <img src="resources/cat-heart.gif" alt="gif" class="gif" id="gif">
+                    <!-- gif credit: https://tenor.com/view/heart-love-cat-kawaii-cute-gif-8446829684698946759 -->
+                </div>
+                <div class="text-one">
+                    <p style="font-size: 1.4rem;text-align: center;" id="text">DO You Love Me Priyanka ?❤️😘</p><!-- replace(name) with your desired name -->
+                </div>
+            </div>
+            <div class="yes-no">
+                <button class="yes" id="yes">Yes</button>
+                <button class="no" id="no">No</button>
+            </div>
+        </div>
+    </section>
+    <script src="js/app.js"></script>
 </body>
 </html>
